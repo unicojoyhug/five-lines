@@ -101,6 +101,7 @@ function handleInput() {
 function updateMap(){
   for (let y = map.length - 1; y >= 0; y--) {
     for (let x = 0; x < map[y].length; x++) {
+      // map & Tile
       if ((map[y][x] === Tile.STONE || map[y][x] === Tile.FALLING_STONE)
           && map[y + 1][x] === Tile.AIR) {
         map[y + 1][x] = Tile.FALLING_STONE;
