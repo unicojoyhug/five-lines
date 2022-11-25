@@ -134,6 +134,11 @@ function drawMap(g: CanvasRenderingContext2D) {
   }
 }
 
+function drawPlayer(g: CanvasRenderingContext2D) {
+  g.fillStyle = "#ff0000";
+  g.fillRect(playerx * TILE_SIZE, playery * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+}
+
 function draw() {
   let canvas = document.getElementById("GameCanvas") as HTMLCanvasElement;
   let g = canvas.getContext("2d");
@@ -144,8 +149,7 @@ function draw() {
   drawMap(g);
 
   // Draw player
-  g.fillStyle = "#ff0000";
-  g.fillRect(playerx * TILE_SIZE, playery * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+  drawPlayer(g);
 }
 
 function gameLoop() {
