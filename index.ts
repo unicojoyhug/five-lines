@@ -103,24 +103,25 @@ function updateMap(){
     for (let x = 0; x < map[y].length; x++) {
       // map & Tile
       updateTile()
-      if ((map[y][x] === Tile.STONE || map[y][x] === Tile.FALLING_STONE)
-          && map[y + 1][x] === Tile.AIR) {
-        map[y + 1][x] = Tile.FALLING_STONE;
-        map[y][x] = Tile.AIR;
-      } else if ((map[y][x] === Tile.BOX || map[y][x] === Tile.FALLING_BOX)
-          && map[y + 1][x] === Tile.AIR) {
-        map[y + 1][x] = Tile.FALLING_BOX;
-        map[y][x] = Tile.AIR;
-      } else if (map[y][x] === Tile.FALLING_STONE) {
-        map[y][x] = Tile.STONE;
-      } else if (map[y][x] === Tile.FALLING_BOX) {
-        map[y][x] = Tile.BOX;
-      }
     }
   }
 }
 
-function updateTile(){}
+function updateTile(){
+  if ((map[y][x] === Tile.STONE || map[y][x] === Tile.FALLING_STONE)
+      && map[y + 1][x] === Tile.AIR) {
+    map[y + 1][x] = Tile.FALLING_STONE;
+    map[y][x] = Tile.AIR;
+  } else if ((map[y][x] === Tile.BOX || map[y][x] === Tile.FALLING_BOX)
+      && map[y + 1][x] === Tile.AIR) {
+    map[y + 1][x] = Tile.FALLING_BOX;
+    map[y][x] = Tile.AIR;
+  } else if (map[y][x] === Tile.FALLING_STONE) {
+    map[y][x] = Tile.STONE;
+  } else if (map[y][x] === Tile.FALLING_BOX) {
+    map[y][x] = Tile.BOX;
+  }
+}
 
 function draw() {
   let g = createCanvas()
