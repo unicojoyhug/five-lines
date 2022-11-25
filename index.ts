@@ -140,10 +140,7 @@ function drawPlayer(g: CanvasRenderingContext2D) {
 }
 
 function draw() {
-  // createCanvas
   let g = createCanvas()
-  // end createCanvas
-
   drawMap(g);
   drawPlayer(g);
 }
