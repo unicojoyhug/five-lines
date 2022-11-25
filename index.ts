@@ -140,10 +140,11 @@ function drawPlayer(g: CanvasRenderingContext2D) {
 }
 
 function draw() {
+  // createCanvas
   let canvas = document.getElementById("GameCanvas") as HTMLCanvasElement;
   let g = canvas.getContext("2d");
-
   g.clearRect(0, 0, canvas.width, canvas.height);
+  // end createCanvas
 
   drawMap(g);
   drawPlayer(g);
