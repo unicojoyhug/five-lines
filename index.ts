@@ -145,10 +145,7 @@ function draw() {
 
   g.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Draw map
   drawMap(g);
-
-  // Draw player
   drawPlayer(g);
 }
 
