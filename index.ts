@@ -81,12 +81,8 @@ function moveVertical(dy: number) {
 }
 
 function update() {
-  //handle input
   handleInput()
-
-  //update map
   updateMap()
-
 }
 
 function handleInput() {
