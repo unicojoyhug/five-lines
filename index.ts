@@ -81,11 +81,11 @@ function moveVertical(dy: number) {
 }
 
 function update() {
-  handleInput()
+  handleInputs()
   updateMap()
 }
 
-function handleInput() {
+function handleInputs() {
   while (inputs.length > 0) {
     let current = inputs.pop();
     if (current === Input.LEFT)
