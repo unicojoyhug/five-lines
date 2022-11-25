@@ -14,10 +14,6 @@ enum Tile {
   KEY2, LOCK2
 }
 
-enum RawInput {
-  UP, DOWN, LEFT, RIGHT
-}
-
 interface Input {
   isUp(): boolean;
   isDown(): boolean;
