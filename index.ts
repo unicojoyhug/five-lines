@@ -64,7 +64,7 @@ let map: Tile[][] = [
   [2, 2, 2, 2, 2, 2, 2, 2],
 ];
 
-let inputs: Input[] = [];
+let inputs: Input2[] = [];
 
 function remove(tile: Tile) {
   for (let y = 0; y < map.length; y++) {
@@ -120,14 +120,14 @@ function update() {
   updateMap()
 }
 
-function handleInput(current: Input ) {
-  if (current === Input.LEFT)
+function handleInput(current: Input2 ) {
+  if (current.isLeft())
     moveHorizontal(-1);
-  else if (current === Input.RIGHT)
+  else if (current.isRight())
     moveHorizontal(1);
-  else if (current === Input.UP)
+  else if (current.isUp())
     moveVertical(-1);
-  else if (current === Input.DOWN)
+  else if (current.isDown())
     moveVertical(1);
 }
 
@@ -221,9 +221,9 @@ const UP_KEY = "ArrowUp";
 const RIGHT_KEY = "ArrowRight";
 const DOWN_KEY = "ArrowDown";
 window.addEventListener("keydown", e => {
-  if (e.key === LEFT_KEY || e.key === "a") inputs.push(Input.LEFT);
-  else if (e.key === UP_KEY || e.key === "w") inputs.push(Input.UP);
-  else if (e.key === RIGHT_KEY || e.key === "d") inputs.push(Input.RIGHT);
-  else if (e.key === DOWN_KEY || e.key === "s") inputs.push(Input.DOWN);
+  if (e.key === LEFT_KEY || e.key === "a") inputs.push(new Left());
+  else if (e.key === UP_KEY || e.key === "w") inputs.push(new Up());
+  else if (e.key === RIGHT_KEY || e.key === "d") inputs.push(new Right());
+  else if (e.key === DOWN_KEY || e.key === "s") inputs.push(new Down());
 });
 
