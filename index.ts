@@ -119,6 +119,8 @@ function updateMap(){
   }
 }
 
+function updateTile(){}
+
 function draw() {
   let g = createCanvas()
   drawMap(g);
