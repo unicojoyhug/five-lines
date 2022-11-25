@@ -82,6 +82,7 @@ function moveVertical(dy: number) {
 
 function update() {
   //handle input
+  handleInput()
   while (inputs.length > 0) {
     let current = inputs.pop();
     if (current === Input.LEFT)
@@ -95,6 +96,7 @@ function update() {
   }
 
   //update map
+  updateMap()
   for (let y = map.length - 1; y >= 0; y--) {
     for (let x = 0; x < map[y].length; x++) {
       if ((map[y][x] === Tile.STONE || map[y][x] === Tile.FALLING_STONE)
