@@ -114,6 +114,9 @@ function update() {
   }
 }
 
+function handleInput() {}
+function updateMap(){}
+
 function draw() {
   let g = createCanvas()
   drawMap(g);
