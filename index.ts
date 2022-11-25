@@ -141,8 +141,7 @@ function drawPlayer(g: CanvasRenderingContext2D) {
 
 function draw() {
   // createCanvas
-  createCanvas()
-
+  let g = createCanvas()
   // end createCanvas
 
   drawMap(g);
