@@ -25,6 +25,34 @@ interface Input2 {
   isRight(): boolean;
 }
 
+class Up implements Input2{
+  isDown(): boolean { return false; }
+  isLeft(): boolean { return false; }
+  isRight(): boolean { return false; }
+  isUp(): boolean { return true; }
+}
+
+class Down implements Input2{
+  isDown(): boolean { return true; }
+  isLeft(): boolean { return false; }
+  isRight(): boolean { return false; }
+  isUp(): boolean { return false; }
+}
+
+class Left implements Input2{
+  isDown(): boolean { return false; }
+  isLeft(): boolean { return true; }
+  isRight(): boolean { return false; }
+  isUp(): boolean { return false; }
+}
+
+class Right implements Input2{
+  isDown(): boolean { return false; }
+  isLeft(): boolean { return false; }
+  isRight(): boolean { return true; }
+  isUp(): boolean { return false; }
+}
+
 let playerx = 1;
 let playery = 1;
 let map: Tile[][] = [
