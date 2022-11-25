@@ -18,35 +18,35 @@ enum RawInput {
   UP, DOWN, LEFT, RIGHT
 }
 
-interface Input2 {
+interface Input {
   isUp(): boolean;
   isDown(): boolean;
   isLeft():boolean;
   isRight(): boolean;
 }
 
-class Up implements Input2{
+class Up implements Input{
   isDown(): boolean { return false; }
   isLeft(): boolean { return false; }
   isRight(): boolean { return false; }
   isUp(): boolean { return true; }
 }
 
-class Down implements Input2{
+class Down implements Input{
   isDown(): boolean { return true; }
   isLeft(): boolean { return false; }
   isRight(): boolean { return false; }
   isUp(): boolean { return false; }
 }
 
-class Left implements Input2{
+class Left implements Input{
   isDown(): boolean { return false; }
   isLeft(): boolean { return true; }
   isRight(): boolean { return false; }
   isUp(): boolean { return false; }
 }
 
-class Right implements Input2{
+class Right implements Input{
   isDown(): boolean { return false; }
   isLeft(): boolean { return false; }
   isRight(): boolean { return true; }
@@ -64,7 +64,7 @@ let map: Tile[][] = [
   [2, 2, 2, 2, 2, 2, 2, 2],
 ];
 
-let inputs: Input2[] = [];
+let inputs: Input[] = [];
 
 function remove(tile: Tile) {
   for (let y = 0; y < map.length; y++) {
@@ -120,7 +120,7 @@ function update() {
   updateMap()
 }
 
-function handleInput(current: Input2 ) {
+function handleInput(current: Input ) {
   if (current.isLeft())
     moveHorizontal(-1);
   else if (current.isRight())
