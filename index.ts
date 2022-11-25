@@ -150,6 +150,8 @@ function draw() {
   drawPlayer(g);
 }
 
+function createCanvas(){}
+
 function gameLoop() {
   let before = Date.now();
   update();
