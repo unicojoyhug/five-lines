@@ -121,10 +121,6 @@ function update() {
   updateMap()
 }
 
-function handleInput2(input: Input ) {
-  input.handle();
-}
-
 function handleInputs() {
   while (inputs.length > 0) {
     let current = inputs.pop();
