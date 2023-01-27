@@ -3,7 +3,7 @@ const TILE_SIZE = 30;
 const FPS = 30;
 const SLEEP = 1000 / FPS;
 
-enum Tile {
+enum RawTile {
   AIR,
   FLUX,
   UNBREAKABLE,
@@ -373,17 +373,17 @@ function drawMap(g: CanvasRenderingContext2D) {
 }
 
 function colorOfTile(y: number, x: number, g: CanvasRenderingContext2D) {
-  if (map[y][x] === Tile.FLUX)
+  if (map[y][x].isFlux())
     g.fillStyle = "#ccffcc";
-  else if (map[y][x] === Tile.UNBREAKABLE)
+  else if (map[y][x].isUnbreakable())
     g.fillStyle = "#999999";
-  else if (map[y][x] === Tile.STONE || map[y][x] === Tile.FALLING_STONE)
+  else if (map[y][x].isStone() || map[y][x].isFallingStone())
     g.fillStyle = "#0000cc";
-  else if (map[y][x] === Tile.BOX || map[y][x] === Tile.FALLING_BOX)
+  else if (map[y][x].isBox() || map[y][x].isFallingBox())
     g.fillStyle = "#8b4513";
-  else if (map[y][x] === Tile.KEY1 || map[y][x] === Tile.LOCK1)
+  else if (map[y][x].isKey1() || map[y][x].isLock1())
     g.fillStyle = "#ffcc00";
-  else if (map[y][x] === Tile.KEY2 || map[y][x] === Tile.LOCK2)
+  else if (map[y][x].isKey2() || map[y][x].isLock2())
     g.fillStyle = "#00ccff";
 }
 
