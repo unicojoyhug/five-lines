@@ -27,16 +27,7 @@ class Up implements Input{
   isLeft(): boolean { return false; }
   isRight(): boolean { return false; }
   isUp(): boolean { return true; }
-  handle() {
-    if (this.isLeft())
-      moveHorizontal(-1);
-    else if (this.isRight())
-      moveHorizontal(1);
-    else if (this.isUp())
-      moveVertical(-1);
-    else if (this.isDown())
-      moveVertical(1);
-  }
+  handle() { moveVertical(-1); }
 }
 
 class Down implements Input{
@@ -44,16 +35,7 @@ class Down implements Input{
   isLeft(): boolean { return false; }
   isRight(): boolean { return false; }
   isUp(): boolean { return false; }
-  handle() {
-    if (this.isLeft())
-      moveHorizontal(-1);
-    else if (this.isRight())
-      moveHorizontal(1);
-    else if (this.isUp())
-      moveVertical(-1);
-    else if (this.isDown())
-      moveVertical(1);
-  }
+  handle() { moveVertical(1); }
 }
 
 class Left implements Input{
@@ -61,16 +43,7 @@ class Left implements Input{
   isLeft(): boolean { return true; }
   isRight(): boolean { return false; }
   isUp(): boolean { return false; }
-  handle() {
-    if (this.isLeft())
-      moveHorizontal(-1);
-    else if (this.isRight())
-      moveHorizontal(1);
-    else if (this.isUp())
-      moveVertical(-1);
-    else if (this.isDown())
-      moveVertical(1);
-  }
+  handle() { moveHorizontal(-1); }
 }
 
 class Right implements Input{
@@ -78,9 +51,7 @@ class Right implements Input{
   isLeft(): boolean { return false; }
   isRight(): boolean { return true; }
   isUp(): boolean { return false; }
-  handle() {
-      moveHorizontal(1);
-  }
+  handle() { moveHorizontal(1); }
 }
 
 let playerx = 1;
