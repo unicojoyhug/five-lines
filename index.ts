@@ -79,13 +79,13 @@ class Right implements Input{
   isRight(): boolean { return true; }
   isUp(): boolean { return false; }
   handle() {
-    if (this.isLeft())
+    if (false)
       moveHorizontal(-1);
-    else if (this.isRight())
+    else if (true)
       moveHorizontal(1);
-    else if (this.isUp())
+    else if (false)
       moveVertical(-1);
-    else if (this.isDown())
+    else if (false)
       moveVertical(1);
   }
 }
