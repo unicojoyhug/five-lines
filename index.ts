@@ -121,7 +121,7 @@ function update() {
   updateMap()
 }
 
-function handleInput(input: Input ) {
+function handleInput2(input: Input ) {
   input.handle();
 }
 
