@@ -15,7 +15,7 @@ enum RawTile {
 }
 
 // Change enum to interface
-interface Tile{
+interface Tile {
   isAir(): boolean;
   isFlux(): boolean;
   isUnbreakable(): boolean;
@@ -247,12 +247,12 @@ class Lock2 implements Tile {
 interface Input {
   isUp(): boolean;
   isDown(): boolean;
-  isLeft():boolean;
+  isLeft(): boolean;
   isRight(): boolean;
   handle(): void;
 }
 
-class Up implements Input{
+class Up implements Input {
   isDown(): boolean { return false; }
   isLeft(): boolean { return false; }
   isRight(): boolean { return false; }
@@ -260,7 +260,7 @@ class Up implements Input{
   handle() { moveVertical(-1); }
 }
 
-class Down implements Input{
+class Down implements Input {
   isDown(): boolean { return true; }
   isLeft(): boolean { return false; }
   isRight(): boolean { return false; }
@@ -268,7 +268,7 @@ class Down implements Input{
   handle() { moveVertical(1); }
 }
 
-class Left implements Input{
+class Left implements Input {
   isDown(): boolean { return false; }
   isLeft(): boolean { return true; }
   isRight(): boolean { return false; }
@@ -276,7 +276,7 @@ class Left implements Input{
   handle() { moveHorizontal(-1); }
 }
 
-class Right implements Input{
+class Right implements Input {
   isDown(): boolean { return false; }
   isLeft(): boolean { return false; }
   isRight(): boolean { return true; }
@@ -330,7 +330,7 @@ function transformMap() {
     }
   }
 }
-function removeLock1(){
+function removeLock1() {
   for (let y = 0; y < map.length; y++) {
     for (let x = 0; x < map[y].length; x++) {
       if (map[y][x].isLock1()) {
@@ -340,7 +340,7 @@ function removeLock1(){
   }
 }
 
-function removeLock2(){
+function removeLock2() {
   for (let y = 0; y < map.length; y++) {
     for (let x = 0; x < map[y].length; x++) {
       if (map[y][x].isLock2()) {
@@ -351,7 +351,7 @@ function removeLock2(){
 }
 
 function moveToTile(newx: number, newy: number) {
-  map[playery][playerx] =new Air();
+  map[playery][playerx] = new Air();
   map[newy][newx] = new Player();
   playerx = newx;
   playery = newy;
@@ -401,7 +401,7 @@ function handleInputs() {
   }
 }
 
-function updateMap(){
+function updateMap() {
   for (let y = map.length - 1; y >= 0; y--) {
     for (let x = 0; x < map[y].length; x++) {
       updateTile(x, y)
@@ -409,13 +409,13 @@ function updateMap(){
   }
 }
 
-function updateTile(x:number, y: number){
+function updateTile(x: number, y: number) {
   if ((map[y][x].isStone() || map[y][x].isFallingStone())
-      && map[y + 1][x].isAir()) {
+    && map[y + 1][x].isAir()) {
     map[y + 1][x] = new FallingStone();
     map[y][x] = new Air();
   } else if ((map[y][x].isBox() || map[y][x].isFallingBox())
-      && map[y + 1][x].isAir()) {
+    && map[y + 1][x].isAir()) {
     map[y + 1][x] = new FallingBox();
     map[y][x] = new Air();
   } else if (map[y][x].isFallingStone()) {
@@ -431,7 +431,7 @@ function draw() {
   drawPlayer(g);
 }
 
-function createCanvas(){
+function createCanvas() {
   let canvas = document.getElementById("GameCanvas") as HTMLCanvasElement;
   let g = canvas.getContext("2d");
   g.clearRect(0, 0, canvas.width, canvas.height);
