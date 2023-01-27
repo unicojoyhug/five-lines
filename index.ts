@@ -252,7 +252,9 @@ class Right implements Input{
 
 let playerx = 1;
 let playery = 1;
-let map: Tile[][] = [
+let inputs: Input[] = [];
+
+let rawMap: RawTile[][] = [
   [2, 2, 2, 2, 2, 2, 2, 2],
   [2, 3, 0, 1, 1, 2, 0, 2],
   [2, 4, 2, 6, 1, 2, 0, 2],
@@ -261,7 +263,7 @@ let map: Tile[][] = [
   [2, 2, 2, 2, 2, 2, 2, 2],
 ];
 
-let inputs: Input[] = [];
+let map: Tile2[][];
 
 function removeLock1(){
   for (let y = 0; y < map.length; y++) {
