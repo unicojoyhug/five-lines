@@ -30,6 +30,21 @@ interface Tile2{
   isLock2(): boolean;
 }
 
+class Air implements Tile2 {
+  isAir() { return true; }
+  isFlux() { return false; }
+  isUnbreakable() { return false; }
+  isPlayer() { return false; }
+  isStone() { return false; }
+  isFallingStone() { return false; }
+  isBox() { return false; }
+  isFallingBox() { return false; }
+  isKey1() { return false; }
+  isLock1() { return false; }
+  isKey2() { return false; }
+  isLock2() { return false; }
+}
+
 class Flux implements Tile2 {
   isAir() { return false; }
   isFlux() { return true; }
@@ -45,6 +60,155 @@ class Flux implements Tile2 {
   isLock2() { return false; }
 }
 
+class Unbreakable implements Tile2 {
+  isAir() { return false; }
+  isFlux() { return false; }
+  isUnbreakable() { return true; }
+  isPlayer() { return false; }
+  isStone() { return false; }
+  isFallingStone() { return false; }
+  isBox() { return false; }
+  isFallingBox() { return false; }
+  isKey1() { return false; }
+  isLock1() { return false; }
+  isKey2() { return false; }
+  isLock2() { return false; }
+}
+
+class Player implements Tile2 {
+  isAir() { return false; }
+  isFlux() { return false; }
+  isUnbreakable() { return false; }
+  isPlayer() { return true; }
+  isStone() { return false; }
+  isFallingStone() { return false; }
+  isBox() { return false; }
+  isFallingBox() { return false; }
+  isKey1() { return false; }
+  isLock1() { return false; }
+  isKey2() { return false; }
+  isLock2() { return false; }
+}
+
+class Stone implements Tile2 {
+  isAir() { return false; }
+  isFlux() { return false; }
+  isUnbreakable() { return false; }
+  isPlayer() { return false; }
+  isStone() { return true; }
+  isFallingStone() { return false; }
+  isBox() { return false; }
+  isFallingBox() { return false; }
+  isKey1() { return false; }
+  isLock1() { return false; }
+  isKey2() { return false; }
+  isLock2() { return false; }
+}
+
+class FallingStone implements Tile2 {
+  isAir() { return false; }
+  isFlux() { return false; }
+  isUnbreakable() { return false; }
+  isPlayer() { return false; }
+  isStone() { return false; }
+  isFallingStone() { return true; }
+  isBox() { return false; }
+  isFallingBox() { return false; }
+  isKey1() { return false; }
+  isLock1() { return false; }
+  isKey2() { return false; }
+  isLock2() { return false; }
+}
+
+class Box implements Tile2 {
+  isAir() { return false; }
+  isFlux() { return false; }
+  isUnbreakable() { return false; }
+  isPlayer() { return false; }
+  isStone() { return false; }
+  isFallingStone() { return false; }
+  isBox() { return true; }
+  isFallingBox() { return false; }
+  isKey1() { return false; }
+  isLock1() { return false; }
+  isKey2() { return false; }
+  isLock2() { return false; }
+}
+
+class FallingBox implements Tile2 {
+  isAir() { return false; }
+  isFlux() { return false; }
+  isUnbreakable() { return false; }
+  isPlayer() { return false; }
+  isStone() { return false; }
+  isFallingStone() { return false; }
+  isBox() { return false; }
+  isFallingBox() { return true; }
+  isKey1() { return false; }
+  isLock1() { return false; }
+  isKey2() { return false; }
+  isLock2() { return false; }
+}
+
+class Key1 implements Tile2 {
+  isAir() { return false; }
+  isFlux() { return false; }
+  isUnbreakable() { return false; }
+  isPlayer() { return false; }
+  isStone() { return false; }
+  isFallingStone() { return false; }
+  isBox() { return false; }
+  isFallingBox() { return false; }
+  isKey1() { return true; }
+  isLock1() { return false; }
+  isKey2() { return false; }
+  isLock2() { return false; }
+}
+
+class Lock1 implements Tile2 {
+  isAir() { return false; }
+  isFlux() { return false; }
+  isUnbreakable() { return false; }
+  isPlayer() { return false; }
+  isStone() { return false; }
+  isFallingStone() { return false; }
+  isBox() { return false; }
+  isFallingBox() { return false; }
+  isKey1() { return false; }
+  isLock1() { return true; }
+  isKey2() { return false; }
+  isLock2() { return false; }
+}
+
+class Key2 implements Tile2 {
+  isAir() { return false; }
+  isFlux() { return false; }
+  isUnbreakable() { return false; }
+  isPlayer() { return false; }
+  isStone() { return false; }
+  isFallingStone() { return false; }
+  isBox() { return false; }
+  isFallingBox() { return false; }
+  isKey1() { return false; }
+  isLock1() { return false; }
+  isKey2() { return true; }
+  isLock2() { return false; }
+}
+
+class Lock2 implements Tile2 {
+  isAir() { return false; }
+  isFlux() { return false; }
+  isUnbreakable() { return false; }
+  isPlayer() { return false; }
+  isStone() { return false; }
+  isFallingStone() { return false; }
+  isBox() { return false; }
+  isFallingBox() { return false; }
+  isKey1() { return false; }
+  isLock1() { return false; }
+  isKey2() { return false; }
+  isLock2() { return true; }
+}
 
 interface Input {
   isUp(): boolean;
