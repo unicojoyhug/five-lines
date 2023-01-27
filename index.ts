@@ -366,7 +366,7 @@ function drawMap(g: CanvasRenderingContext2D) {
     for (let x = 0; x < map[y].length; x++) {
       colorOfTile(y, x, g);
 
-      if (map[y][x] !== Tile.AIR && map[y][x] !== Tile.PLAYER)
+      if (!map[y][x].isAir() && !map[y][x].isPlayer())
         g.fillRect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
     }
   }
