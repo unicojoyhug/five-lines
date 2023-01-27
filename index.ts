@@ -377,7 +377,9 @@ class Left implements Input {
   isLeft(): boolean { return true; }
   isRight(): boolean { return false; }
   isUp(): boolean { return false; }
-  handle() { moveHorizontal(-1); }
+  handle() {
+    map[playery][playerx - 1].moveHorizontal(-1);
+  }
 }
 
 class Right implements Input {
@@ -385,7 +387,9 @@ class Right implements Input {
   isLeft(): boolean { return false; }
   isRight(): boolean { return true; }
   isUp(): boolean { return false; }
-  handle() { moveHorizontal(1); }
+  handle() {
+    map[playery][playerx + 1].moveHorizontal(1);
+  }
 }
 
 let playerx = 1;
@@ -462,20 +466,7 @@ function moveToTile(newx: number, newy: number) {
 }
 
 function moveHorizontal(dx: number) {
-  if (map[playery][playerx + dx].isEdible()) { //edible: flux or air
-    moveToTile(playerx + dx, playery);
-  } else if ((map[playery][playerx + dx].isPushable())  //pushable: box or stone
-    && map[playery][playerx + dx + dx].isAir()
-    && !map[playery + 1][playerx + dx].isAir()) {
-    map[playery][playerx + dx + dx] = map[playery][playerx + dx];
-    moveToTile(playerx + dx, playery);
-  } else if (map[playery][playerx + dx].isKey1()) {
-    removeLock1();
-    moveToTile(playerx + dx, playery);
-  } else if (map[playery][playerx + dx].isKey2()) {
-    removeLock2();
-    moveToTile(playerx + dx, playery);
-  }
+  map[playery][playerx + dx].moveHorizontal(dx);
 }
 
 function moveVertical(dy: number) {
