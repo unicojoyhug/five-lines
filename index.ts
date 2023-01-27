@@ -28,7 +28,7 @@ interface Tile{
   isLock1(): boolean;
   isKey2(): boolean;
   isLock2(): boolean;
-  colorOfTile(y: number, x: number, g: CanvasRenderingContext2D): void;
+  color(g: CanvasRenderingContext2D): void;
 }
 
 class Air implements Tile {
@@ -44,20 +44,7 @@ class Air implements Tile {
   isLock1() { return false; }
   isKey2() { return false; }
   isLock2() { return false; }
-  colorOfTile(y: number, x: number, g: CanvasRenderingContext2D) {
-    if (map[y][x].isFlux())
-      g.fillStyle = "#ccffcc";
-    else if (map[y][x].isUnbreakable())
-      g.fillStyle = "#999999";
-    else if (map[y][x].isStone() || map[y][x].isFallingStone())
-      g.fillStyle = "#0000cc";
-    else if (map[y][x].isBox() || map[y][x].isFallingBox())
-      g.fillStyle = "#8b4513";
-    else if (map[y][x].isKey1() || map[y][x].isLock1())
-      g.fillStyle = "#ffcc00";
-    else if (map[y][x].isKey2() || map[y][x].isLock2())
-      g.fillStyle = "#00ccff";
-  }
+  color(g: CanvasRenderingContext2D) { }
 }
 
 class Flux implements Tile {
@@ -73,21 +60,9 @@ class Flux implements Tile {
   isLock1() { return false; }
   isKey2() { return false; }
   isLock2() { return false; }
-  colorOfTile(y: number, x: number, g: CanvasRenderingContext2D) {
-    if (map[y][x].isFlux())
-      g.fillStyle = "#ccffcc";
-    else if (map[y][x].isUnbreakable())
-      g.fillStyle = "#999999";
-    else if (map[y][x].isStone() || map[y][x].isFallingStone())
-      g.fillStyle = "#0000cc";
-    else if (map[y][x].isBox() || map[y][x].isFallingBox())
-      g.fillStyle = "#8b4513";
-    else if (map[y][x].isKey1() || map[y][x].isLock1())
-      g.fillStyle = "#ffcc00";
-    else if (map[y][x].isKey2() || map[y][x].isLock2())
-      g.fillStyle = "#00ccff";
+  color(g: CanvasRenderingContext2D) {
+    g.fillStyle = "#ccffcc";
   }
-
 }
 
 class Unbreakable implements Tile {
@@ -103,19 +78,8 @@ class Unbreakable implements Tile {
   isLock1() { return false; }
   isKey2() { return false; }
   isLock2() { return false; }
-  colorOfTile(y: number, x: number, g: CanvasRenderingContext2D) {
-    if (map[y][x].isFlux())
-      g.fillStyle = "#ccffcc";
-    else if (map[y][x].isUnbreakable())
-      g.fillStyle = "#999999";
-    else if (map[y][x].isStone() || map[y][x].isFallingStone())
-      g.fillStyle = "#0000cc";
-    else if (map[y][x].isBox() || map[y][x].isFallingBox())
-      g.fillStyle = "#8b4513";
-    else if (map[y][x].isKey1() || map[y][x].isLock1())
-      g.fillStyle = "#ffcc00";
-    else if (map[y][x].isKey2() || map[y][x].isLock2())
-      g.fillStyle = "#00ccff";
+  color(g: CanvasRenderingContext2D) {
+    g.fillStyle = "#999999";
   }
 }
 
@@ -132,19 +96,7 @@ class Player implements Tile {
   isLock1() { return false; }
   isKey2() { return false; }
   isLock2() { return false; }
-  colorOfTile(y: number, x: number, g: CanvasRenderingContext2D) {
-    if (map[y][x].isFlux())
-      g.fillStyle = "#ccffcc";
-    else if (map[y][x].isUnbreakable())
-      g.fillStyle = "#999999";
-    else if (map[y][x].isStone() || map[y][x].isFallingStone())
-      g.fillStyle = "#0000cc";
-    else if (map[y][x].isBox() || map[y][x].isFallingBox())
-      g.fillStyle = "#8b4513";
-    else if (map[y][x].isKey1() || map[y][x].isLock1())
-      g.fillStyle = "#ffcc00";
-    else if (map[y][x].isKey2() || map[y][x].isLock2())
-      g.fillStyle = "#00ccff";
+  color(g: CanvasRenderingContext2D) {
   }
 }
 
@@ -161,19 +113,8 @@ class Stone implements Tile {
   isLock1() { return false; }
   isKey2() { return false; }
   isLock2() { return false; }
-  colorOfTile(y: number, x: number, g: CanvasRenderingContext2D) {
-    if (map[y][x].isFlux())
-      g.fillStyle = "#ccffcc";
-    else if (map[y][x].isUnbreakable())
-      g.fillStyle = "#999999";
-    else if (map[y][x].isStone() || map[y][x].isFallingStone())
-      g.fillStyle = "#0000cc";
-    else if (map[y][x].isBox() || map[y][x].isFallingBox())
-      g.fillStyle = "#8b4513";
-    else if (map[y][x].isKey1() || map[y][x].isLock1())
-      g.fillStyle = "#ffcc00";
-    else if (map[y][x].isKey2() || map[y][x].isLock2())
-      g.fillStyle = "#00ccff";
+  color(g: CanvasRenderingContext2D) {
+    g.fillStyle = "#0000cc";
   }
 }
 
@@ -190,19 +131,8 @@ class FallingStone implements Tile {
   isLock1() { return false; }
   isKey2() { return false; }
   isLock2() { return false; }
-  colorOfTile(y: number, x: number, g: CanvasRenderingContext2D) {
-    if (map[y][x].isFlux())
-      g.fillStyle = "#ccffcc";
-    else if (map[y][x].isUnbreakable())
-      g.fillStyle = "#999999";
-    else if (map[y][x].isStone() || map[y][x].isFallingStone())
-      g.fillStyle = "#0000cc";
-    else if (map[y][x].isBox() || map[y][x].isFallingBox())
-      g.fillStyle = "#8b4513";
-    else if (map[y][x].isKey1() || map[y][x].isLock1())
-      g.fillStyle = "#ffcc00";
-    else if (map[y][x].isKey2() || map[y][x].isLock2())
-      g.fillStyle = "#00ccff";
+  color(g: CanvasRenderingContext2D) {
+    g.fillStyle = "#0000cc";
   }
 }
 
@@ -219,19 +149,8 @@ class Box implements Tile {
   isLock1() { return false; }
   isKey2() { return false; }
   isLock2() { return false; }
-  colorOfTile(y: number, x: number, g: CanvasRenderingContext2D) {
-    if (map[y][x].isFlux())
-      g.fillStyle = "#ccffcc";
-    else if (map[y][x].isUnbreakable())
-      g.fillStyle = "#999999";
-    else if (map[y][x].isStone() || map[y][x].isFallingStone())
-      g.fillStyle = "#0000cc";
-    else if (map[y][x].isBox() || map[y][x].isFallingBox())
-      g.fillStyle = "#8b4513";
-    else if (map[y][x].isKey1() || map[y][x].isLock1())
-      g.fillStyle = "#ffcc00";
-    else if (map[y][x].isKey2() || map[y][x].isLock2())
-      g.fillStyle = "#00ccff";
+  color(g: CanvasRenderingContext2D) {
+    g.fillStyle = "#8b4513";
   }
 }
 
@@ -248,19 +167,8 @@ class FallingBox implements Tile {
   isLock1() { return false; }
   isKey2() { return false; }
   isLock2() { return false; }
-  colorOfTile(y: number, x: number, g: CanvasRenderingContext2D) {
-    if (map[y][x].isFlux())
-      g.fillStyle = "#ccffcc";
-    else if (map[y][x].isUnbreakable())
-      g.fillStyle = "#999999";
-    else if (map[y][x].isStone() || map[y][x].isFallingStone())
-      g.fillStyle = "#0000cc";
-    else if (map[y][x].isBox() || map[y][x].isFallingBox())
-      g.fillStyle = "#8b4513";
-    else if (map[y][x].isKey1() || map[y][x].isLock1())
-      g.fillStyle = "#ffcc00";
-    else if (map[y][x].isKey2() || map[y][x].isLock2())
-      g.fillStyle = "#00ccff";
+  color(g: CanvasRenderingContext2D) {
+    g.fillStyle = "#8b4513";
   }
 }
 
@@ -277,19 +185,8 @@ class Key1 implements Tile {
   isLock1() { return false; }
   isKey2() { return false; }
   isLock2() { return false; }
-  colorOfTile(y: number, x: number, g: CanvasRenderingContext2D) {
-    if (map[y][x].isFlux())
-      g.fillStyle = "#ccffcc";
-    else if (map[y][x].isUnbreakable())
-      g.fillStyle = "#999999";
-    else if (map[y][x].isStone() || map[y][x].isFallingStone())
-      g.fillStyle = "#0000cc";
-    else if (map[y][x].isBox() || map[y][x].isFallingBox())
-      g.fillStyle = "#8b4513";
-    else if (map[y][x].isKey1() || map[y][x].isLock1())
-      g.fillStyle = "#ffcc00";
-    else if (map[y][x].isKey2() || map[y][x].isLock2())
-      g.fillStyle = "#00ccff";
+  color(g: CanvasRenderingContext2D) {
+    g.fillStyle = "#ffcc00";
   }
 }
 
@@ -306,19 +203,8 @@ class Lock1 implements Tile {
   isLock1() { return true; }
   isKey2() { return false; }
   isLock2() { return false; }
-  colorOfTile(y: number, x: number, g: CanvasRenderingContext2D) {
-    if (map[y][x].isFlux())
-      g.fillStyle = "#ccffcc";
-    else if (map[y][x].isUnbreakable())
-      g.fillStyle = "#999999";
-    else if (map[y][x].isStone() || map[y][x].isFallingStone())
-      g.fillStyle = "#0000cc";
-    else if (map[y][x].isBox() || map[y][x].isFallingBox())
-      g.fillStyle = "#8b4513";
-    else if (map[y][x].isKey1() || map[y][x].isLock1())
-      g.fillStyle = "#ffcc00";
-    else if (map[y][x].isKey2() || map[y][x].isLock2())
-      g.fillStyle = "#00ccff";
+  color(g: CanvasRenderingContext2D) {
+    g.fillStyle = "#ffcc00";
   }
 }
 
@@ -335,19 +221,8 @@ class Key2 implements Tile {
   isLock1() { return false; }
   isKey2() { return true; }
   isLock2() { return false; }
-  colorOfTile(y: number, x: number, g: CanvasRenderingContext2D) {
-    if (map[y][x].isFlux())
-      g.fillStyle = "#ccffcc";
-    else if (map[y][x].isUnbreakable())
-      g.fillStyle = "#999999";
-    else if (map[y][x].isStone() || map[y][x].isFallingStone())
-      g.fillStyle = "#0000cc";
-    else if (map[y][x].isBox() || map[y][x].isFallingBox())
-      g.fillStyle = "#8b4513";
-    else if (map[y][x].isKey1() || map[y][x].isLock1())
-      g.fillStyle = "#ffcc00";
-    else if (map[y][x].isKey2() || map[y][x].isLock2())
-      g.fillStyle = "#00ccff";
+  color(g: CanvasRenderingContext2D) {
+    g.fillStyle = "#00ccff";
   }
 }
 
@@ -364,19 +239,8 @@ class Lock2 implements Tile {
   isLock1() { return false; }
   isKey2() { return false; }
   isLock2() { return true; }
-  colorOfTile(y: number, x: number, g: CanvasRenderingContext2D) {
-    if (map[y][x].isFlux())
-      g.fillStyle = "#ccffcc";
-    else if (map[y][x].isUnbreakable())
-      g.fillStyle = "#999999";
-    else if (map[y][x].isStone() || map[y][x].isFallingStone())
-      g.fillStyle = "#0000cc";
-    else if (map[y][x].isBox() || map[y][x].isFallingBox())
-      g.fillStyle = "#8b4513";
-    else if (map[y][x].isKey1() || map[y][x].isLock1())
-      g.fillStyle = "#ffcc00";
-    else if (map[y][x].isKey2() || map[y][x].isLock2())
-      g.fillStyle = "#00ccff";
+  color(g: CanvasRenderingContext2D) {
+    g.fillStyle = "#00ccff";
   }
 }
 
