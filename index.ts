@@ -14,6 +14,38 @@ enum Tile {
   KEY2, LOCK2
 }
 
+// Change enum to interface
+interface Tile2{
+  isAir(): boolean;
+  isFlux(): boolean;
+  isUnbreakable(): boolean;
+  isPlayer(): boolean;
+  isStone(): boolean;
+  isFallingStone(): boolean;
+  isBox(): boolean;
+  isFallingBox(): boolean;
+  isKey1(): boolean;
+  isLock1(): boolean;
+  isKey2(): boolean;
+  isLock2(): boolean;
+}
+
+class Flux implements Tile2 {
+  isAir() { return false; }
+  isFlux() { return true; }
+  isUnbreakable() { return false; }
+  isPlayer() { return false; }
+  isStone() { return false; }
+  isFallingStone() { return false; }
+  isBox() { return false; }
+  isFallingBox() { return false; }
+  isKey1() { return false; }
+  isLock1() { return false; }
+  isKey2() { return false; }
+  isLock2() { return false; }
+}
+
+
 interface Input {
   isUp(): boolean;
   isDown(): boolean;
