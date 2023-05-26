@@ -385,7 +385,9 @@ class Up implements Input {
   isLeft(): boolean { return false; }
   isRight(): boolean { return false; }
   isUp(): boolean { return true; }
-  handle() { moveVertical(-1); }
+  handle() {
+    map[playery - 1][playerx].moveVertical(-1);
+   }
 }
 
 class Down implements Input {
@@ -393,7 +395,9 @@ class Down implements Input {
   isLeft(): boolean { return false; }
   isRight(): boolean { return false; }
   isUp(): boolean { return false; }
-  handle() { moveVertical(1); }
+  handle() { 
+    map[playery + 1][playerx].moveVertical(1);
+  }
 }
 
 class Left implements Input {
@@ -487,14 +491,6 @@ function moveToTile(newx: number, newy: number) {
   map[newy][newx] = new Player();
   playerx = newx;
   playery = newy;
-}
-
-function moveHorizontal(dx: number) {
-  map[playery][playerx + dx].moveHorizontal(dx);
-}
-
-function moveVertical(dy: number) {
-  map[playery + dy][playerx].moveVertical(dy);
 }
 
 function update() {
